@@ -11,6 +11,11 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-types": "^6.25.0",
+    "bluebird": "^3.5.0",
+    "glob": "^7.1.2",
     "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "jest": "^20.0.4"
   }
 }
