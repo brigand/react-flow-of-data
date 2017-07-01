@@ -32,3 +32,5 @@ class ActionType {
   }
 }
 
+module.exports = ActionType;
+

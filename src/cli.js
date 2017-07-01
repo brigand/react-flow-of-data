@@ -2,6 +2,12 @@
 const yargs = require('yargs');
 const run = require('./run');
 
+process.on('unhandledRejection', (reason, p) => {
+  console.error(`unhandledRejection`);
+  console.error(reason);
+  process.exit(1);
+});
+
 const argv = yargs
   .argv;
 

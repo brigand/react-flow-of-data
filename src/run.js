@@ -21,13 +21,14 @@ const run = (base, configFile) => {
       ctx.setFiles(files);
     })
     .then(() => {
-      return ctx.actions;
+      getActions(ctx);
+      return ctx.actionsByType;
     });
 };
 
 const getActions = (ctx) => {
   ctx.files.forEach((file) => {
-    ctx.config.getActions(ctx, file.content);
+    ctx.config.getActions(ctx, file);
   });
 };
 

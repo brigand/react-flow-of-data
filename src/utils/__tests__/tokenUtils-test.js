@@ -11,6 +11,7 @@ it(`tracks brackets`, () => {
     paren: 0,
     curly: 0,
     bracket: 0,
+    total: 0,
   });
 
   const b = t[7];
@@ -19,6 +20,7 @@ it(`tracks brackets`, () => {
     paren: 0,
     curly: 1,
     bracket: 0,
+    total: 1,
   });
 });
 

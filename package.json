@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "acorn": "^5.0.3",
+    "acorn-jsx": "^4.0.1",
     "babel-core": "^6.25.0",
     "babel-helpers": "^6.24.1",
     "babel-preset-latest": "^6.24.1",

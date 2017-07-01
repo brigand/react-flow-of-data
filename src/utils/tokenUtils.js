@@ -1,10 +1,13 @@
-const acorn = require('acorn');
+const acorn = require('acorn-jsx');
 
 // Refer to https://github.com/ternjs/acorn/blob/master/src/tokentype.js#L55
 const {tokTypes: tt} = acorn;
 exports.tt = tt;
 
-const getTokens = (str) => acorn.tokenizer(str, {locations: true});
+const getTokens = (str) => acorn.tokenizer(str, {
+  locations: true,
+  plugins: {jsx: true},
+});
 exports.getTokens = getTokens;
 
 const getTokenMeta = (tokens) => {
@@ -27,7 +30,11 @@ const getTokenMeta = (tokens) => {
     }
 
     res.push(Object.assign({}, token, {
-      open: Object.assign({}, open),
+      open: Object.assign(
+        {},
+        open,
+        {total: open.paren + open.curly + open.bracket}
+      ),
       line: token.loc.start.line - 1,
     }));
   }
