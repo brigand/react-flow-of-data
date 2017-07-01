@@ -8,6 +8,7 @@ class Context {
     this.logLevel = opts.logLevel || 'warn';
     this.base = opts.base;
     this.config = opts.config;
+    this.files = [];
     // things are like reducers, etc.
     this.things = {};
     this.utils = makeUtils(this);
@@ -19,6 +20,10 @@ class Context {
     // TODO: validate?
 
     this.things[type].push(value);
+  }
+
+  setFiles(files) {
+    this.files = files;
   }
 }
 

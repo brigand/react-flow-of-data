@@ -17,5 +17,6 @@
   },
   "devDependencies": {
     "jest": "^20.0.4"
-  }
+  },
+  "repository": "git@github.com:brigand/react-flow-of-data.git"
 }

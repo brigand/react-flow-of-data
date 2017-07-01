@@ -14,6 +14,15 @@ const run = (base, configFile) => {
         logLevel: undefined,
       });
     })
+    .then(() => {
+      return ctx.utils.fs.readDirP('.');
+    })
+    .then((files) => {
+      ctx.setFiles(files);
+    })
+    .then(() => {
+      return ctx.files;
+    });
 };
 
 module.exports = run;
