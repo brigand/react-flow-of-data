@@ -5,6 +5,7 @@
   "author": "Frankie Bagnardi <f.bagnardi@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "acorn": "^5.0.3",
     "babel-core": "^6.25.0",
     "babel-helpers": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
