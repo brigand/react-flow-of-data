@@ -1,4 +1,5 @@
 const assert = require('assert');
+const ActionType = require('./types/ActionType.js');
 const makeUtils = require('./makeUtils.js');
 
 class Context {
@@ -11,6 +12,9 @@ class Context {
     this.files = [];
     // things are like reducers, etc.
     this.things = {};
+
+    this.actionsByType = {};
+
     this.utils = makeUtils(this);
   }
 
@@ -20,6 +24,12 @@ class Context {
     // TODO: validate?
 
     this.things[type].push(value);
+  }
+
+  getAction(type) {
+    const action = this.actionsByType[type] || new ActionType(type);
+    this.actionsByType[type] = action;
+    return action;
   }
 
   setFiles(files) {
