@@ -2,6 +2,7 @@ const acorn = require('acorn');
 
 // Refer to https://github.com/ternjs/acorn/blob/master/src/tokentype.js#L55
 const {tokTypes: tt} = acorn;
+exports.tt = tt;
 
 const getTokens = (str) => acorn.tokenizer(str, {locations: true});
 exports.getTokens = getTokens;
@@ -24,7 +25,11 @@ const getTokenMeta = (tokens) => {
       case tt.bracketL: open.bracket++; break;
       case tt.bracketR: open.bracket--; break;
     }
-    res.push(Object.assign({}, token, {open: Object.assign({}, open)}));
+
+    res.push(Object.assign({}, token, {
+      open: Object.assign({}, open),
+      line: token.loc.start.line - 1,
+    }));
   }
   return res;
 };

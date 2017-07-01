@@ -22,3 +22,10 @@ it(`tracks brackets`, () => {
   });
 });
 
+it(`gets line number`, () => {
+  const t = getTokenMeta(`a\nb\nc\n`);
+  expect(t[0].line).toBe(0);
+  expect(t[1].line).toBe(1);
+  expect(t[2].line).toBe(2);
+});
+

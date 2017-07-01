@@ -21,8 +21,14 @@ const run = (base, configFile) => {
       ctx.setFiles(files);
     })
     .then(() => {
-      return ctx.files;
+      return ctx.actions;
     });
+};
+
+const getActions = (ctx) => {
+  ctx.files.forEach((file) => {
+    ctx.config.getActions(ctx, file.content);
+  });
 };
 
 module.exports = run;
